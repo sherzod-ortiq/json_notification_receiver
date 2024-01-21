@@ -1,0 +1,14 @@
+# ~ 23.67 MB
+FROM ruby:2.6.10-alpine
+
+RUN apk add build-base
+
+ENV APP_HOME /json_notification_receiver
+
+WORKDIR $APP_HOME
+
+COPY Gemfile $APP_HOME/Gemfile
+
+COPY Gemfile.lock $APP_HOME/Gemfile.lock
+
+RUN bundle install
